@@ -1,6 +1,6 @@
 {
     "dev": {
-        "app_function": "modulo.app",
+        "app_function": "scrapping_pages.lambda_handler",
         "keep_warm": false,
         "role_name": "LabRole",
         "profile_name": "default",

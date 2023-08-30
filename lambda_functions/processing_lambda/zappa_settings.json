@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "app_function": "processing_data.lambda_handler",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "profile_name": "default",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "project_name": "lambda-projects",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-vqnohilpk",
+        "events": [{
+                "function": "modulo.app",
+                "event_source": {
+                    "arn":  "arn:aws:s3:::bigdata2023hugoespinosa",
+                    "events": [
+                        "s3:ObjectCreated:*"
+                    ]
+                }
+                }]
+    }
+}
