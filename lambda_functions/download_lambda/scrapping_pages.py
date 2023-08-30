@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     s3_client = boto3.client('s3')
     s3_client.put_object(
         Body=html,
-        Bucket='buckethugoa',
+        Bucket='bigdata2023hugoespinosa',
         Key='index.html',
         ContentType='text/html'
     )
