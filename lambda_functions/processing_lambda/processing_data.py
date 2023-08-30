@@ -35,7 +35,10 @@ def lambda_handler(event, context):
         # Crear contenido CSV
         csv_content = 'category,title,link\n'
         for news in news_data:
-            csv_content += f'"{news["category"]}", "{news["title"]}", "{news["link"]}"\n'
+            csv_content += (
+                f'"{news["category"]}", "{news["title"]}", "{news["link"]}"\n'
+            )
+
 
         # Subir el archivo CSV a S3
         s3_key = (

@@ -37,4 +37,3 @@ def test_lambda_handler():
     mock_soup.assert_called_once_with(
         b'Contenido HTML simulado',
         'html.parser')
-    # Agrega más aserciones según sea necesario para verificar otras partes de la función
