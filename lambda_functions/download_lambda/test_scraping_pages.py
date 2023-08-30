@@ -14,7 +14,7 @@ def test_lambda_handler_scrapping():
     with patch('urllib.request.urlopen', mock_urlopen), \
          patch('boto3.client', return_value=mock_s3_client):
             event = {}  # Puedes proporcionar un evento adecuado si es necesario
-            result = lambda_handler(event, None)
+            result = lambda_handler_scrapping(event, None)
 
     assert result['statusCode'] == 200
     assert result['body'] == '"Hello from Lambda!"'

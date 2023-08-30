@@ -25,7 +25,7 @@ def test_lambda_handler_processing():
                 }
             ]
         }
-        result = lambda_handler(event, None)
+        result = lambda_handler_processing(event, None)
 
     assert result['statusCode'] == 200
     assert result['body'] == '"Datos procesados y guardados en CSV exitosamente"'
