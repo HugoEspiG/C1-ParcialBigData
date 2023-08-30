@@ -1,7 +1,7 @@
-from scrapping_pages import lambda_handler
+from scrapping_pages import lambda_handler_scrapping
 from unittest.mock import Mock, patch
 
-def test_lambda_handler():
+def test_lambda_handler_scrapping():
     # Mock para la respuesta HTTP
     mock_response = Mock()
     mock_response.read.return_value = b'Contenido de prueba'
@@ -23,7 +23,7 @@ def test_lambda_handler():
     mock_s3_client.assert_called_once_with('s3')
     mock_s3_client.return_value.put_object.assert_called_once_with(
         Body=b'Contenido de prueba', 
-        Bucket='buckethugoa', 
+        Bucket='bigdata2023hugoespinosa', 
         Key='index.html', 
         ContentType='text/html'
     )

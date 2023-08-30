@@ -3,7 +3,7 @@ import boto3
 from bs4 import BeautifulSoup
 
 
-def lambda_handler(event, context):
+def lambda_handler_processing(event, context):
     try:
         # Obtener información sobre el archivo cargado desde el evento
         bucket_name = event['Records'][0]['s3']['bucket']['name']

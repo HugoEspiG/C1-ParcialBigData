@@ -2,7 +2,7 @@ import json
 import boto3
 import urllib.request
 
-def lambda_handler(event, context):
+def lambda_handler_scrapping(event, context):
     url = 'https://www.eltiempo.com/'
     
     with urllib.request.urlopen(url) as response:
