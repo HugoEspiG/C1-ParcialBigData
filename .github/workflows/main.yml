@@ -77,7 +77,7 @@ jobs:
         run: |
           source env/bin/activate
           cd lambda_functions/download_lambda
-          zappa update
+          zappa deploy
 
       - name: zappa deploy processing
         run: |
