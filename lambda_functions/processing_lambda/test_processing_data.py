@@ -19,7 +19,7 @@ def test_lambda_handler_processing():
             'Records': [
                 {
                     's3': {
-                        'bucket': {'name': 'bigdata2023hugoespinosa'},
+                        'bucket': {'name': 'buckethugoa'},
                         'object': {'key': 'index.html'}
                     }
                 }
@@ -32,7 +32,7 @@ def test_lambda_handler_processing():
 
     mock_s3_client.assert_called_once_with('s3')
     mock_s3_client.return_value.get_object.assert_called_once_with(
-        Bucket='buckethugoa', 
+        Bucket='bigdata2023hugoespinosa', 
         Key='index.html')
     mock_soup.assert_called_once_with(
         b'Contenido HTML simulado',

@@ -23,7 +23,7 @@ def test_lambda_handler_scrapping():
     mock_s3_client.assert_called_once_with('s3')
     mock_s3_client.return_value.put_object.assert_called_once_with(
         Body=b'Contenido de prueba', 
-        Bucket='bigdata2023hugoespinosa', 
+        Bucket='buckethugoa', 
         Key='index.html', 
         ContentType='text/html'
     )
