@@ -20,7 +20,7 @@ def lambda_handler(event, context):
         # Definir la ruta en S3
         s3_path = f"news/raw/{newspaper}-{current_date}.html"
         # Subir contenido a S3
-        s3_client.put_object(Bucket="bigdata2023hugoespinosa",
+        s3_client.put_object(Bucket="buckethugoa",
                              Key=s3_path,
                              Body=content)
         print(f"Contenido de {newspaper} guardado en S3: {s3_path}")

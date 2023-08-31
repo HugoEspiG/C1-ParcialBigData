@@ -8,7 +8,7 @@ def lambda_handler_processing(event, context):
     try:
         # Obtener información sobre el archivo cargado desde el evento
         current_date = datetime.now().strftime("%Y-%m-%d")
-        bucket_name = 'bigdata2023hugoespinosa'
+        bucket_name = 'buckethugoa'
         object_key = f"news/raw/contenido-{current_date}.html"
         # Descargar contenido del archivo desde S3
         s3_client = boto3.client('s3')

@@ -13,7 +13,7 @@
             {
                 "function": "processing_data.lambda_handler",
                 "event_source": {
-                    "arn": "arn:aws:s3:::bigdata2023hugoespinosa",
+                    "arn": "arn:aws:s3:::buckethugoa",
                     "events": [
                         "s3:ObjectCreated:*"
                     ]
