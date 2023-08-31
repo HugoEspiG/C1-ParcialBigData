@@ -63,7 +63,7 @@ jobs:
       - name: test flake8
         run: |
           cd lambda_functions
-          cd download_functions
+          cd download_lambda
           flake8 scrapping_pages.py
           cd ..
           cd processing_lambda
