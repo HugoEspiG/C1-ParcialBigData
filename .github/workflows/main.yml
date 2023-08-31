@@ -65,17 +65,12 @@ jobs:
           cd processing_lambda
           flake8 processing_data.py
 
-      - name: checkconnection
-        run: |
-          source env/bin/activate  
-          aws s3 ls
-          aws lambda list-functions
-
-
       - name: zappa deploy scraping
         run: |
           source env/bin/activate
           cd lambda_functions/download_lambda
+          aws s3 ls
+          aws lambda list-functions
           zappa update
 
       - name: zappa deploy processing
