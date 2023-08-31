@@ -66,8 +66,10 @@ jobs:
           flake8 processing_data.py
 
       - name: checkconnection
-        run: aws s3 ls
-        
+        run: |
+          source env/bin/activate  
+          aws s3 ls
+
       - name: zappa deploy scraping
         run: |
           source env/bin/activate
