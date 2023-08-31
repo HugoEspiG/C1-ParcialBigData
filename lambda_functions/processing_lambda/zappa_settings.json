@@ -1,6 +1,7 @@
 {
     "dev": {
-        "app_function": "processing_data.lambda_handler",
+        "app_function": "processing_data.lambda_handler_processing",
+        "aws_region": "us-east-1",
         "keep_warm": false,
         "role_name": "LabRole",
         "profile_name": "default",
@@ -8,12 +9,12 @@
         "apigateway_enabled": false,
         "project_name": "processing_lambda",
         "runtime": "python3.9",
-        "s3_bucket": "zappa-lambda2",
+        "s3_bucket": "zappa-pj68ovztx",
         "events": [
             {
-                "function": "processing_data.lambda_handler",
+                "function": "processing_data.lambda_handler_processing",
                 "event_source": {
-                    "arn": "arn:aws:s3:::buckethugoa",
+                    "arn": "arn:aws:s3:::bigdata2023hugoespinosa",
                     "events": [
                         "s3:ObjectCreated:*"
                     ]
