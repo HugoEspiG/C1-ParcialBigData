@@ -44,6 +44,7 @@ jobs:
           source env/bin/activate
           pip install zappa
           pip install -r requirements.txt
+          pip list
       
       - name: Install Ruff
         run: pip install ruff
@@ -68,14 +69,14 @@ jobs:
         run: |
           source env/bin/activate
           cd lambda_functions/download_lambda
-          zappa deploy dev
+          zappa deploy
           zappa invoke dev scrapping_pages.lambda_handler
 
       - name: zappa deploy processing
         run: |
           source env/bin/activate 
           cd lambda_functions/processing_lambda
-          zappa deploy dev
+          zappa deploy
   
   
 
