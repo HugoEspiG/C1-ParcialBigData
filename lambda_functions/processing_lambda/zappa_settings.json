@@ -9,7 +9,7 @@
         "apigateway_enabled": false,
         "project_name": "processing_lambda",
         "runtime": "python3.9",
-        "s3_bucket": "zappa-pj68ovztx",
+        "s3_bucket": "zappa-zni74f985",
         "events": [
             {
                 "function": "processing_data.lambda_handler_processing",

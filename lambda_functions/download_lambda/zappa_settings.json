@@ -9,7 +9,7 @@
         "apigateway_enabled": false,
         "project_name": "download_lambda",
         "runtime": "python3.9",
-        "s3_bucket": "zappa-lye3bk6jk",
+        "s3_bucket": "zappa-0jhm7elgd",
         "events": [
             {
                 "function": "scrapping_pages.lambda_handler",
