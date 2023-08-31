@@ -77,6 +77,7 @@ jobs:
         run: |
           source env/bin/activate
           cd lambda_functions/download_lambda
+          zappa deploy dev
           zappa update
           zappa invoke dev scrapping_pages.lambda_handler
 
@@ -85,6 +86,7 @@ jobs:
         run: |
           source env/bin/activate 
           cd lambda_functions/processing_lambda
+          zappa deploy dev
           zappa update
   
   
