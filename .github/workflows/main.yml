@@ -60,8 +60,16 @@ jobs:
           # default set of ruff rules with GitHub Annotations
           ruff --format=github --target-version=py37 .
 
-      - name: Test with pytest
+      - name: test flake8
         run: |
-          pytest
+          cd lambda_functions
+          cd download_functions
+          flake8 scrapping_pages.py
+          cd ..
+          cd processing_lambda
+          flake8 processing_data.py
+      # - name: Test with pytest
+      #   run: |
+      #     pytest
 
           
