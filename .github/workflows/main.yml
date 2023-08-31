@@ -66,12 +66,15 @@ jobs:
           flake8 processing_data.py
 
       - name: zappa deploy scraping
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          source env/bin/activate
           cd lambda_functions/download_lambda
           aws s3 ls
           aws lambda list-functions
           zappa update
+  
 
       - name: zappa deploy processing
         run: |
