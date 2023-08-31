@@ -75,6 +75,7 @@ jobs:
           source env/bin/activate
           cd lambda_functions/download_lambda
           pwd
+          ls
           zappa deploy
           zappa invoke dev scrapping_pages.lambda_handler
 
