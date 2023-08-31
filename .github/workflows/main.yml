@@ -69,21 +69,20 @@ jobs:
         run: |
           source env/bin/activate  
           aws s3 ls
+          aws lambda list-functions
+
 
       - name: zappa deploy scraping
         run: |
           source env/bin/activate
           cd lambda_functions/download_lambda
-          pwd
-          ls
-          zappa deploy
-          zappa invoke dev scrapping_pages.lambda_handler
+          zappa update
 
       - name: zappa deploy processing
         run: |
           source env/bin/activate 
           cd lambda_functions/processing_lambda
-          zappa deploy
+          zappa update
   
   
 
