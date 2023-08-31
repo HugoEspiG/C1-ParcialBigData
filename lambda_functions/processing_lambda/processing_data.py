@@ -27,7 +27,8 @@ def lambda_handler_processing(event, context):
         obj = s3.Object(bucket_name, object_key)
         body = obj.get()['Body'].read()
         processed_data = process_news(body)
-        csv_key = f'headlines/final/periodico={newspaper}/year={current_date[:4]}'\
+        csv_key = f'headlines/final/periodico={newspaper}/year'\
+            '={current_date[:4]}'\
             '/month={current_date[5:7]}/{current_date}.csv'
         s3_client = boto3.client('s3')
         s3_client.put_object(
