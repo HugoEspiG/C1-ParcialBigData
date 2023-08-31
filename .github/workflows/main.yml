@@ -50,6 +50,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install zappa
           pip install -r requirements.txt
+          pip install virtualenv
+          virtualenv env
+          source env/bin/activate
       
       - name: Install Ruff
         run: pip install ruff
@@ -63,6 +66,7 @@ jobs:
 
       - name: test flake8
         run: |
+          source env/bin/activate
           cd lambda_functions
           cd download_lambda
           flake8 scrapping_pages.py
@@ -72,6 +76,7 @@ jobs:
 
       - name: zappa
         run: |
+          source env/bin/activate
           cd lambda_functions
           cd download_lambda
           zappa deploy dev
