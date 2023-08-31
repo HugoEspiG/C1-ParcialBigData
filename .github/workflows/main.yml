@@ -57,6 +57,7 @@ jobs:
 
       - name: test flake8
         run: |
+          source env/bin/activate
           cd lambda_functions/download_lambda
           flake8 scrapping_pages.py
           cd ..
