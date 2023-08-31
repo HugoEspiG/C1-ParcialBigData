@@ -75,11 +75,13 @@ jobs:
 
       - name: zappa deploy scraping
         run: |
+          source env/bin/activate
           cd lambda_functions/download_lambda
           zappa update
 
       - name: zappa deploy processing
         run: |
+          source env/bin/activate 
           cd lambda_functions/processing_lambda
           zappa update
   
