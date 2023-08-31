@@ -6,9 +6,9 @@
         "profile_name": "default",
         "manage_roles": false,
         "apigateway_enabled": false,
-        "project_name": "lambda-projects",
+        "project_name": "processing_lambda",
         "runtime": "python3.9",
-        "s3_bucket": "zappa-vqnohilpk",
+        "s3_bucket": "zappa-lambda2",
         "events": [
             {
                 "function": "processing_data.lambda_handler",
