@@ -13,12 +13,7 @@
         "events": [
             {
                 "function": "scrapping_pages.lambda_handler",
-                "event_source": {
-                    "arn": "arn:aws:s3:::buckethugoa",
-                    "events": [
-                        "s3:ObjectCreated:*"
-                    ]
-                }
+                "expression": "cron(56 14 * * ? *)" 
             }
         ]
     }
