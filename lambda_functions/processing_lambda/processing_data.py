@@ -2,6 +2,7 @@ import boto3
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+
 def process_news(html_content):
     html_parsed = BeautifulSoup(html_content, 'html.parser')
     articles = html_parsed.find_all('article')
