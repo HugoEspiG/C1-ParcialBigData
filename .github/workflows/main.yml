@@ -57,25 +57,14 @@ jobs:
 
       - name: test flake8
         run: |
-          source env/bin/activate
-          cd lambda_functions/download_lambda
           flake8 scrapping_pages.py
-          cd ..
-          cd processing_lambda
           flake8 processing_data.py
 
       - name: zappa deploy scraping
         run: |
           source env/bin/activate
-          cd lambda_functions/download_lambda
-          zappa update
-
-      - name: zappa deploy processing
-        run: |
-          source env/bin/activate 
-          cd lambda_functions/processing_lambda
-          zappa update
-  
+          zappa update dev
+          zappa update dev2  
   
 
       # - name: Test with pytest
