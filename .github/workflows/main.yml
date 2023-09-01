@@ -23,18 +23,26 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-            aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-            aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-            aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
-            aws-region: us-east-1
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+
+      - name: Configure AWS credentials and region
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+          AWS_DEFAULT_REGION: us-east-1
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set aws_session_token $AWS_SESSION_TOKEN
+          aws configure set default.region $AWS_DEFAULT_REGION
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install virtualenv
           virtualenv env
           source env/bin/activate
@@ -60,14 +68,6 @@ jobs:
           cd processing_lambda
           flake8 processing_data.py
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-            aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-            aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-            aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
-            aws-region: us-east-1
-
       - name: zappa deploy scraping
         run: |
           source env/bin/activate
@@ -84,5 +84,3 @@ jobs:
       # - name: Test with pytest
       #   run: |
       #     pytest
-
-          
