@@ -57,6 +57,7 @@ jobs:
 
       - name: test flake8
         run: |
+          source env/bin/activate
           flake8 scrapping_pages.py
           flake8 processing_data.py
 
