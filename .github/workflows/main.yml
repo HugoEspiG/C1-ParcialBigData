@@ -70,8 +70,9 @@ jobs:
 
       - name: Test with pytest
         run: |
+          source env/bin/activate
           pytest
-          
+
       - name: zappa deploy scraping
         run: |
           source env/bin/activate
